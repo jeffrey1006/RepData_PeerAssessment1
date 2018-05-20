@@ -7,7 +7,7 @@ output:
 
 ## Loading and preprocessing the data
 
-We'll be downloading data, unzipping it and reading as CSV.
+Downloading data, unzipping it and reading as CSV.
 ```{r loaddata}
 ## Load data
 url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
@@ -26,7 +26,7 @@ actData$interval <- as.numeric(actData$interval)
 
 ## What is mean total number of steps taken per day?
 
-We'll aggregate sums of steps save them into a separate data frame factored by date
+Aggregate sums of steps save them into a separate data frame factored by date
 
 ```{r sumperday}
 ## Aggregate sums of steps per each day into a different data frame
@@ -68,7 +68,7 @@ median(actDataByMonth$steps)
 
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-We'll start by aggregating means of steps taken factored by Intervals with empty values dropped.
+Start by aggregating means of steps taken factored by Intervals with empty values dropped.
 
 ``` {r meanperinterval}
 ## Aggregate Average Steps by Interval
@@ -79,7 +79,7 @@ actDataByInterval <- aggregate(actData$steps, by = list(actData$interval),
 names(actDataByInterval) <- c("interval","steps")
 ```
 
-Then we build a plot using ggplot
+Build a plot using ggplot.
 
 ``` {r plotmeanperinteval, fig.width=10}
 ## Plot Time Series of Average Steps by Interval
@@ -95,7 +95,7 @@ ggplot(actDataByInterval, aes(x = interval, y = steps)) +
 maxSteps <- which.max(actDataByInterval$steps)
 ```
 
-And here's the Interval which contains the maximum number of steps.
+Here's the Interval which contains the maximum number of steps.
 
 ``` {r returnmaxsteps}
 ## Return Data for Max Average Steps Interval
@@ -104,7 +104,7 @@ actDataByInterval[maxSteps, ]
 
 ## Imputing missing values
 
-First we'll collect indexes of missing values
+First collect indexes of missing values
 
 ``` {r findmissing}
 ## Check if steps is NA and save an index if it is
@@ -114,12 +114,12 @@ missingValues <- which(is.na(actData$steps))
 length(missingValues)
 ```
 
-Then we copy a dataset into a placeholder that'll be filling in for missing values
+Copy a dataset into a placeholder that'll be filling in for missing values
 ``` {r copydataframe}
 actFullData <- actData
 ```
 
-Next we'll iterate through the dataset in a loop and replace each value with a mean for that 5-minute interval as previously calculated.
+Iterate through the dataset in a loop and replace each value with a mean for that 5-minute interval as previously calculated.
 
 ``` {r imputemissing}
 ## Replace missing values with mean for corresponding interval
@@ -128,7 +128,7 @@ for(i in missingValues) {
 }
 ```
 
-Now we'll re-calculate the aggreate number of steps per day.
+Re-calculate the aggreate number of steps per day.
 
 ```{r fullsumperday}
 ## aggregate sums of steps per each day into a different data frame
@@ -166,12 +166,12 @@ These number do indeed differ from estimation based on the original dataset with
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-First we transform the full dataset to include a new boolean factor variable. weekend is TRUE for weekend and FALSE for weekdays
+First transform the full dataset to include a new boolean factor variable. weekend is TRUE for weekend and FALSE for weekdays
 ``` {r findweekends}
 actFullData <- transform(actFullData, isWeekend=as.POSIXlt(date)$wday %in% c(0, 6))
 ```
 
-We then aggregate means of steps factored by both interval and weekend/weekdays variables.
+Aggregate means of steps factored by both interval and weekend/weekdays variables.
 ``` {r}
 actFullDataByIntervalDay <- aggregate(actFullData$steps,
                                       by = list(actFullData$interval, actFullData$isWeekend),
@@ -181,7 +181,7 @@ actFullDataByIntervalDay <- aggregate(actFullData$steps,
 names(actFullDataByIntervalDay) <- c("interval","isWeekend","steps")
 ```
 
-Finally, we plot the average (mean) number of steps by intervals on weekends (marked as TRUE) and weekdays (marked as FALSE)
+Finally, plot the average (mean) number of steps by intervals on weekends (marked as TRUE) and weekdays (marked as FALSE)
 ``` {r plotweekends}
 library(lattice)
 xyplot(steps ~ interval|isWeekend, data = actFullDataByIntervalDay,
