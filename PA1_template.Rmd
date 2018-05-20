@@ -10,15 +10,13 @@ output:
 
 * Unzip data to obtain a csv file.
 
- unzip("activity.zip",exdir = "data")
+  unzip("activity.zip",exdir = "data")
  
 * Reading the data into activity data frame and show some summary statistics
 
- activity <- read.csv("data/activity.csv", stringsAsFactors=FALSE)
- 
- str(activity)
- 
- summary(activity)
+  activity <- read.csv("data/activity.csv", stringsAsFactors=FALSE)
+  str(activity)
+  summary(activity)
  
 * Convert date to POSIXct class using lubridate package and convert interval to hour:minute format
  
