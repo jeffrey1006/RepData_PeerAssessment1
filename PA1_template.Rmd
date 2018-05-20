@@ -51,7 +51,7 @@ text(x = 0,y=mean(total_day$total_steps),pos=1,labels = "mean",col="red")
 
 ### 2. Make a histogram of the total number of steps taken each day
 
-*Histogram does not contain days where all observations are missing (i.e. there have to be a number of steps for at least one interval for that day, to be included). Otherwise, there would be about ten days with 0 steps.
+* Histogram does not contain days where all observations are missing (i.e. there have to be a number of steps for at least one interval for that day, to be included). Otherwise, there would be about ten days with 0 steps.
 
 total_day <- filter(total_day, na < 1)
 
