@@ -50,7 +50,7 @@ ggplot(actDataByMonth, aes(x = date, y = steps)) +
     geom_line(stat="hline", yintercept=median, linetype="dashed")
 ```
 
-![plot of chunk plotsumperday](figure/plotsumperday.png) 
+![plot of chunk plotsumperday](plotsumperday.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -102,7 +102,7 @@ ggplot(actDataByInterval, aes(x = interval, y = steps)) +
     labs(title = "Average (mean) number of steps by Interval", x = "Interval", y = "Number of steps")
 ```
 
-![plot of chunk plotmeanperinteval](figure/plotmeanperinteval.png) 
+![plot of chunk plotmeanperinteval](plotmeanperinteval.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -182,7 +182,7 @@ ggplot(actFullDataByMonth, aes(x = date, y = steps)) +
     geom_line(stat="hline", yintercept=median, linetype="dashed")
 ```
 
-![plot of chunk plotfullsumperday](figure/plotfullsumperday.png) 
+![plot of chunk plotfullsumperday](plotfullsumperday.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -237,4 +237,4 @@ xyplot(steps ~ interval|isWeekend, data = actFullDataByIntervalDay,
        xlab = "Interval", ylab = "Average Steps (mean)")
 ```
 
-![plot of chunk plotweekends](figure/plotweekends.png) 
+![plot of chunk plotweekends](plotweekends.png) 
