@@ -8,12 +8,14 @@ output:
 ## Loading and preprocessing the data
 
 Unzip data to obtain a csv file.
-
+'''
 unzip("activity.zip",exdir = "data")
-Reading the data into activity data frame and show some summary statistics
+'''  
+Reading the data into activity data frame and show some summary statistics  
 
 activity <- read.csv("data/activity.csv", stringsAsFactors=FALSE)
 str(activity)
+
 ## 'data.frame':	17568 obs. of  3 variables:
 ##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ date    : chr  "2012-10-01" "2012-10-01" "2012-10-01" "2012-10-01" ...
