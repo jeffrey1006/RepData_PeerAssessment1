@@ -51,7 +51,7 @@ text(x = 0,y=mean(total_day$total_steps),pos=1,labels = "mean",col="red")
 
 ### 2. Make a histogram of the total number of steps taken each day
 
-**Histogram does not contain days where all observations are missing (i.e. there have to be a number of steps for at least one interval for that day, to be included). Otherwise, there would be about ten days with 0 steps.
+** Histogram does not contain days where all observations are missing (i.e. there have to be a number of steps for at least one interval for that day, to be included). Otherwise, there would be about ten days with 0 steps.
 
 total_day <- filter(total_day, na < 1)
 
@@ -60,11 +60,14 @@ hist(total_day$total_steps,col="orange",breaks=20,main="Total steps per day",xla
 abline(v=median(total_day$total_steps),lty=3, lwd=2, col="black")
 
 legend(legend="median","topright",lty=3,lwd=2,bty = "n")
+
 # 3. Calculate and report the mean and median of the total number of steps taken per day
 
 mean_steps <- mean(total_day$total_steps,na.rm=TRUE)
+
 median_steps <- median(total_day$total_steps,na.rm=TRUE)
-Mean and median of the total number of steps taken per day are r round(mean_steps,2) steps and r median_steps steps, respectively.
+
+** Mean and median of the total number of steps taken per day are r round(mean_steps,2) steps and r median_steps steps, respectively.
 
 ## What is the average daily activity pattern?
 
