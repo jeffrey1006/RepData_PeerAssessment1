@@ -1,10 +1,13 @@
-# Reproducible Research: Peer Assessment 1
-
-
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ## Loading and preprocessing the data
 
-We'll be downloading data, unzipping it and reading as CSV.
+Downloading data, unzipping it and reading as CSV.
 
 ```r
 ## Load data
@@ -24,7 +27,7 @@ actData$interval <- as.numeric(actData$interval)
 
 ## What is mean total number of steps taken per day?
 
-We'll aggregate sums of steps save them into a separate data frame factored by date
+Aggregate sums of steps save them into a separate data frame factored by date
 
 
 ```r
@@ -80,7 +83,7 @@ median(actDataByMonth$steps)
 
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-We'll start by aggregating means of steps taken factored by Intervals with empty values dropped.
+Start by aggregating means of steps taken factored by Intervals with empty values dropped.
 
 
 ```r
